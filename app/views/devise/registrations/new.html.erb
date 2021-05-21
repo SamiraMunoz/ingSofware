@@ -1,0 +1,64 @@
+<div id="layoutAuthentication">
+    <div id="layoutAuthentication_content">
+        <main>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-7">
+                        <div class="card shadow-lg border-0 rounded-lg mt-5">
+                            <div class="card-header"><h3 class="text-center font-weight-light my-4">Crear nueva cuenta</h3></div>
+                            <div class="card-body">
+                              <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                                <%= render "devise/shared/error_messages", resource: resource %>
+                                <div class="form-row">
+                                  <div class="col-md-6">
+                                      <div class="form-group">
+                                          <label class="small mb-1">Nombre</label>
+                                          <%= f.text_field :first_name, autofocus: true, class: 'form-control py-4', placeholder: 'Ingrese su nombre'%>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                      <div class="form-group">
+                                          <label class="small mb-1" >Apellido</label>
+                                          <%= f.text_field :last_name, autofocus: true, class: 'form-control py-4', placeholder: 'Ingrese su apellido'%>
+                                      </div>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="small mb-1">Correo</label>
+                                    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control py-4', placeholder: 'Ingrese su correo' %>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="small mb-1" for="inputPassword">Contraseña</label>
+                                            <%= f.password_field :password, autocomplete: "new-password", placeholder: 'Ingrese su contraseña', class: 'form-control py-4' %>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="small mb-1" for="inputPassword">Confirmación de contraseña</label>
+                                            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'Confirme su contraseña', class: 'form-control py-4' %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group mt-4 mb-0">
+                                    <%= f.submit "Crear cuenta", class: 'btn btn-primary btn-block'%>
+                                </div>
+                              <% end %>
+                            </div>
+                            <div class="card-footer text-center">
+                                <div class="small">
+                                  <%= link_to "Tienes una cuenta? Ir a iniciar sessión", new_session_path(resource_name) %><br />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div id="layoutAuthentication_footer">
+        <%= render "partials/footer" %>
+    </div>
+</div>

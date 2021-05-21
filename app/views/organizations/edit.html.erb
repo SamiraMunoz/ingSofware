@@ -1,0 +1,25 @@
+<%= render "partials/navigation" %>
+<div id="layoutSidenav">
+    <%= render "partials/sidenav" %>
+    <div id="layoutSidenav_content">
+      <main>
+        <div class="container-fluid">
+            <h1 class="mt-4 text-center">Editar empresa</h1>
+            <ol class="breadcrumb mb-4">
+              <div class="col-md-6">
+              </div>
+              <div class="col-md-6 text-right">
+                <%= link_to 'Regresar listado de empresas', organizations_path, class: 'stretched-link' %>
+              </div>
+            </ol>
+
+            <%= render 'form', organization: @organization %>
+
+            <div class="text-right">
+              <button type="button" class="btn btn-outline-primary">Asignar $Ecoins a la empresa</button>
+            </div>
+        </div>
+      </main>
+      <%= render "partials/footer" %>
+    </div>
+</div>

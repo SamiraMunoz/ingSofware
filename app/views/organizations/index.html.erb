@@ -1,0 +1,62 @@
+<%= render "partials/navigation" %>
+<div id="layoutSidenav">
+    <%= render "partials/sidenav" %>
+    <div id="layoutSidenav_content">
+      <main>
+        <div class="container-fluid">
+            <h1 class="mt-4 text-center">Empresas</h1>
+            <ol class="breadcrumb mb-4">
+              <div class="col-md-6">
+              </div>
+              <div class="col-md-6 text-right">
+                <%= link_to 'Nueva empresa', new_organization_path, class: 'stretched-link' %>
+              </div>
+            </ol>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table mr-1"></i>
+                    Listado de empresas
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr class="text-center">
+                                    <th>Nombre</th>
+                                    <th>$Ecoins</th>
+                                    <th>Ver</th>
+                                    <th>Editar</th>
+                                    <th>Eliminar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                              <% @organizations.each do |organization| %>
+                                <tr>
+                                  <td><%= organization.name %></td>
+                                  <td class="text-center"><%= organization.ecoins %></td>
+                                  <td class="text-center">
+                                    <%= link_to organization do %>
+                                        <i class="fas fas fa-eye"></i>
+                                    <% end %>
+                                  <td class="text-center">
+                                    <%= link_to edit_organization_path(organization) do %>
+                                        <i class="fas fa-edit"></i>
+                                    <% end %>
+                                  </td>
+                                  <td class="text-center">
+                                    <%= link_to organization, method: :delete do %>
+                                        <i class="fas fa-trash"></i>
+                                    <% end %>
+                                  </td>
+                                </tr>
+                              <% end %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </main>
+      <%= render "partials/footer" %>
+    </div>
+</div>

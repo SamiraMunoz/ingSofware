@@ -1,0 +1,55 @@
+<%= render "partials/navigation" %>
+<div id="layoutSidenav">
+    <%= render "partials/sidenav" %>
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid">
+                <h1 class="mt-4">Dashboard</h1>
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item active">Dashboard</li>
+                </ol>
+                <div class="row">
+                    <div class="col-xl">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-chart-area mr-1"></i>
+                                Diagrama de barras de las empresas
+                            </div>
+                            <div class="card-body">
+                                <%= column_chart Organization.group(:name).sum(:ecoins) %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-table mr-1"></i>
+                        Mejores estudiantes
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Total Ecoins</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <%- @users.each do |user| %>
+                                        <tr>
+                                            <td><%= user.first_name %></td>
+                                            <td><%= user.ecoins %></td>
+                                        </tr>
+                                    <%- end %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+        <%= render "partials/footer" %>
+    </div>
+</div>

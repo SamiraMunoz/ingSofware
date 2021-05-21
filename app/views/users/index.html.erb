@@ -1,0 +1,44 @@
+<%= render "partials/navigation" %>
+<div id="layoutSidenav">
+    <%= render "partials/sidenav" %>
+    <div id="layoutSidenav_content">
+      <main>
+        <div class="container-fluid">
+            <h1 class="mt-4 text-center">Estudiantes</h1>
+            <ol class="breadcrumb mb-4">
+            </ol>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table mr-1"></i>
+                    Listado de estudiantes
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr class="text-center">
+                                    <th>Nombre</th>
+                                    <th>Apellido</th>
+                                    <th>$Ecoins</th>
+                                    <th>Empresa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                              <% @users.each do |user| %>
+                                <tr>
+                                  <td><%= user.first_name %></td>
+                                  <td><%= user.last_name %></td>
+                                  <td class="text-center"><%= user.ecoins %></td>
+                                  <td class="text-center"><%= user.organization.name %></td>
+                                </tr>
+                              <% end %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </main>
+      <%= render "partials/footer" %>
+    </div>
+</div>

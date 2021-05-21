@@ -1,0 +1,26 @@
+<div id="layoutSidenav_nav">
+  <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+      <div class="sb-sidenav-menu">
+          <div class="nav">
+              <div class="sb-sidenav-menu-heading">App</div>
+
+              <%= link_to root_path, class:  "nav-link" do %>
+                  <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                  Dashboard
+              <% end %>
+              <%= link_to activities_path, class:  "nav-link" do %>
+                  <div class="sb-nav-link-icon"><i class="fas fa-star"></i></div>
+                  Actividades
+              <% end %>
+              <%= link_to organizations_path, class:  "nav-link" do %>
+                  <div class="sb-nav-link-icon"><i class="fas fa-sitemap"></i></div>
+                  Empresas
+              <% end %>
+              <%= link_to users_path, class:  "nav-link" do %>
+                  <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                  Estudiantes
+              <% end %>
+          </div>
+      </div>
+  </nav>
+</div>

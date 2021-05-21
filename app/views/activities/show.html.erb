@@ -1,0 +1,37 @@
+<%= render "partials/navigation" %>
+<div id="layoutSidenav">
+    <%= render "partials/sidenav" %>
+    <div id="layoutSidenav_content">
+      <main>
+        <div class="container-fluid">
+          <h1 class="mt-4 text-center"><%=@activity.name%></h1>
+          <ol class="breadcrumb mb-4">
+            <div class="col-md-6">
+              <li class="breadcrumb-item active">Actividad del grupo YYY</li>
+            </div>
+            <div class="col-md-6 text-right">
+              <%= link_to 'Regresar actividades', activities_path, class: 'stretched-link' %>
+            </div>
+          </ol>
+
+          <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-align-justify mr-1"></i>
+                Descripción
+            </div>
+            <div class="card-body">
+              <%=@activity.description%>
+            </div>
+            <div class="card-footer text-right">
+              <%= @activity.ecoins %> $Ecoins
+            </div>
+          </div>
+
+          <div class="text-center">
+            <%= link_to 'Editar actividad', edit_activity_path(@activity), class: 'btn btn-primary' %>
+          </div>
+        </div>
+      </main>
+      <%= render "partials/footer" %>
+    </div>
+</div>
